@@ -1,0 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Electrolize&family=Jolly+Lodger&family=Roboto:wght@100&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+  background-color: aliceblue;
+}

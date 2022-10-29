@@ -10,7 +10,7 @@ https://user-images.githubusercontent.com/47687479/198289755-417676b3-1ec3-4717-
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ahmed-sudani/recipes/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/ahmed-sudani/404-pages/issues).
 
 ## Show your support
 

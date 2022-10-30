@@ -13,6 +13,7 @@ function Preview() {
     const params = useParams();
     const Component = require(`./components/404/${params.component}`).default;
     const { htmlTemplate } = require(`./components/404/${params.component}`);
+    const [copied, setCopied] = useState(false);
     return (
         <>
             <Nav />
@@ -23,22 +24,25 @@ function Preview() {
             )}
             {viewCode && (
                 <div className="overflow-auto text-xs rounded-md m-4">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="60"
-                        height="60"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        className="translate-y-3 absolute right-6 z-50 cursor-pointer scale-90"
-                        onClick={async () => {await navigator.clipboard.writeText(htmlTemplate)}}
-                    >
-                        <path stroke="white" d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
-                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" stroke="white" />
-                    </svg>
+                    {copied === false && (
+                        <img
+                            src="/copy-Icon.svg"
+                            alt="Copy Icon"
+                            className="translate-y-3 absolute right-6 z-50 cursor-pointer scale-90 h-16"
+                            onClick={async () => {
+                                await navigator.clipboard.writeText(
+                                    htmlTemplate
+                                );
+                                setCopied(true);
+                                setTimeout(() => setCopied(false), 2000);
+                            }}
+                        />
+                    )}
+                    {copied === true && (
+                        <h1 className="translate-y-6 absolute right-6 z-50 text-2xl h-16 text-white">
+                            Copied
+                        </h1>
+                    )}
                     <SyntaxHighlighter
                         customStyle={{ borderRadius: 5 }}
                         language="html"
